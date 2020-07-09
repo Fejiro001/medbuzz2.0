@@ -98,16 +98,16 @@ class ScheduleAppointmentModel extends ChangeNotifier {
 
     var selectedDateTime = "${_today.year}-$monthValue-$dayValue";
 
-    var appointmentType = typeOfAppointment.toString().length < 1
+    var appointmentType = _typeOfAppointment.toString().length < 1
         ? 'empty 0$typeOfAppointment'
         : '$typeOfAppointment';
 
-    var noteValue = note.toString().length < 1 ? 'empty 0$note' : '$note';
+    var noteValue = _note.toString().length < 1 ? 'empty 0$note' : '$note';
 
     Appointment newAppointment = Appointment(
         date: DateTime.parse(selectedDateTime),
-        appointmentType: _typeOfAppointment,
-        note: _note,
+        appointmentType: appointmentType,
+        note: noteValue,
         dateTime: _selectedTime);
     return newAppointment;
   }
